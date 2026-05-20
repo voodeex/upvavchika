@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="shootandbunny.MainWindow"
+        Title="ShootAndBunny"
+        Width="1100" Height="700"
+        MinWidth="800" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid ColumnDefinitions="56,*">
+        
+        <Border Grid.Column="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,1,0">
+            <StackPanel Margin="4,8,4,8" Spacing="4">
+                
+                <Button x:Name="Catalog" Click="Catalog_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Каталог книг">
+                    <Image Source="Images/catalog.png"/>
+                </Button>
+                
+                <Button x:Name="Lists" Click="Lists_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Мои списки">
+                    <Image Source="Images/lists.png"/>
+                </Button>
+                
+                <Button x:Name="Author" Click="Author_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Мои книги">
+                    <Image Source="Images/author.png"/>
+                </Button>
+                
+                <Button x:Name="Admin" Click="Admin_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Администрирование">
+                    <Image Source="Images/admin.png"/>
+                </Button>
+                
+                <Button x:Name="Frozen" Click="Frozen_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Аккаунт заморожен">
+                    <Image Source="Images/frozen.png"/>
+                </Button>
+                
+                <Button x:Name="Profile" Click="Profile_Click" Width="44" Height="44" Padding="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip.Tip="Профиль" Margin="0,8,0,0">
+                    <Image Source="Images/profile.png"/>
+                </Button>
+
+            </StackPanel>
+        </Border>
+        
+        <ContentControl x:Name="MainContent" Grid.Column="1"/>
+
+    </Grid>
+</Window>

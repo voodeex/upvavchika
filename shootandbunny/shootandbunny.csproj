@@ -1,0 +1,102 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="12.0.0"/>
+        <PackageReference Include="Avalonia.Desktop" Version="12.0.0"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.0"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="12.0.0"/>
+        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.1">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.15" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.15">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.15" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.15">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        
+        <Compile Update="App.axaml.cs">
+            <DependentUpon>App.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="MainWindow.axaml.cs">
+            <DependentUpon>MainWindow.axaml</DependentUpon>
+        </Compile>
+
+
+        <Compile Update="Views\LoginWindow.axaml.cs">
+            <DependentUpon>LoginWindow.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\CatalogView.axaml.cs">
+            <DependentUpon>CatalogView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\BookView.axaml.cs">
+            <DependentUpon>BookView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\BookReaderView.axaml.cs">
+            <DependentUpon>BookReaderView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\ReadingListsView.axaml.cs">
+            <DependentUpon>ReadingListsView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\ProfileView.axaml.cs">
+            <DependentUpon>ProfileView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\AuthorView.axaml.cs">
+            <DependentUpon>AuthorView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\BookFormView.axaml.cs">
+            <DependentUpon>BookFormView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\AdminView.axaml.cs">
+            <DependentUpon>AdminView.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\ComplaintDialog.axaml.cs">
+            <DependentUpon>ComplaintDialog.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\UnfreezeRequestDialog.axaml.cs">
+            <DependentUpon>UnfreezeRequestDialog.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\FreezeDialog.axaml.cs">
+            <DependentUpon>FreezeDialog.axaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\ChangePasswordDialog.axaml.cs">
+            <DependentUpon>ChangePasswordDialog.axaml</DependentUpon>
+        </Compile>
+
+        
+        <Compile Update="Controls\BookCard.axaml.cs">
+            <DependentUpon>BookCard.axaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Images\catalog.svg" />
+      <None Remove="Images\catalog.png" />
+      <AvaloniaResource Include="Images\catalog.png" />
+      <None Remove="Images\lists.png" />
+      <AvaloniaResource Include="Images\lists.png" />
+      <None Remove="Images\author.png" />
+      <AvaloniaResource Include="Images\author.png" />
+      <None Remove="Images\admin.png" />
+      <AvaloniaResource Include="Images\admin.png" />
+      <None Remove="Images\frozen.png" />
+      <AvaloniaResource Include="Images\frozen.png" />
+      <None Remove="Images\profile.png" />
+      <AvaloniaResource Include="Images\profile.png" />
+    </ItemGroup>
+</Project>
