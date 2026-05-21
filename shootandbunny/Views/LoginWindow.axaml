@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="shootandbunny.Views.LoginWindow"
+        Title="ShootAndBunny"
+        Width="420" Height="520"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E2E">
+
+    <StackPanel VerticalAlignment="Center" Margin="40,0">
+
+        <TextBlock Text="ShootAndBunny" FontSize="26" FontWeight="Bold" Foreground="#CDD6F4" HorizontalAlignment="Center" Margin="0,0,0,32"/>
+
+        <Grid ColumnDefinitions="*,*" Margin="0,0,0,24">
+            <StackPanel Grid.Column="0">
+                <Button x:Name="TabLogin" Content="Вход" Click="TabLogin_Click" Background="Transparent" BorderThickness="0" CornerRadius="0" Foreground="#CDD6F4" FontSize="14" Padding="0,8" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Border x:Name="LineLogin" Height="2" Background="#89B4FA"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Button x:Name="TabRegister" Content="Регистрация" Click="TabRegister_Click" Background="Transparent" BorderThickness="0" CornerRadius="0" Foreground="#6C7086" FontSize="14" Padding="0,8" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                <Border x:Name="LineRegister" Height="2" Background="#89B4FA" IsVisible="False"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel x:Name="PanelLogin" Spacing="12">
+            <TextBox x:Name="LoginLogin" PlaceholderText="Логин" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBox x:Name="LoginPassword" PlaceholderText="Пароль" PasswordChar="*" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBlock x:Name="LoginError" Foreground="#F38BA8" FontSize="12" IsVisible="False" TextWrapping="Wrap"/>
+            <Button Content="Войти" Click="Login_Click" Margin="0,8,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Padding="0,10" CornerRadius="6" BorderThickness="0" Background="#89B4FA" Foreground="#1E1E2E" FontWeight="SemiBold"/>
+        </StackPanel>
+
+        <StackPanel x:Name="PanelRegister" Spacing="12" IsVisible="False">
+            <TextBox x:Name="RegLogin" PlaceholderText="Логин" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBox x:Name="RegDisplayName" PlaceholderText="Имя пользователя" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBox x:Name="RegEmail" PlaceholderText="Email" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBox x:Name="RegPassword" PlaceholderText="Пароль" PasswordChar="*"  Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBox x:Name="RegPasswordConfirm" PlaceholderText="Повторите пароль" PasswordChar="*" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+            <TextBlock x:Name="RegError" Foreground="#F38BA8" FontSize="12" IsVisible="False" TextWrapping="Wrap"/>
+            <Button Content="Зарегистрироваться" Click="Register_Click" Margin="0,8,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Padding="0,10" CornerRadius="6" BorderThickness="0" Background="#89B4FA" Foreground="#1E1E2E" FontWeight="SemiBold"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

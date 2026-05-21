@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.ReadingListsView"
+             Background="#181825">
+    <Grid RowDefinitions="70,*">
+        <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="28,0">
+            <TextBlock Text="Список чтения" Foreground="#CDD6F4" FontSize="22" FontWeight="Bold" VerticalAlignment="Center"/>
+        </Border>
+        <Grid Grid.Row="1" ColumnDefinitions="180,*">
+            <Border Grid.Column="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,1,0">
+                <StackPanel Margin="0,12,0,12">
+                    <Button x:Name="TabAll" Content="Все" Click="All_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="20,10" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch"/>
+                    <Button x:Name="TabPlan" Content="В планах" Click="Plan_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="20,10" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch"/>
+                    <Button x:Name="TabReading" Content="Читаю" Click="Reading_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="20,10" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch"/>
+                    <Button x:Name="TabDone" Content="Прочитано" Click="Done_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="20,10" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch"/>
+                    <Button x:Name="TabDropped" Content="Заброшено" Click="Dropped_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="20,10" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Border>
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="24,20,24,32" Spacing="12">
+                    <TextBlock x:Name="EmptyText" Text="Список пуст." Foreground="#6C7086" FontSize="14" IsVisible="False"/>
+                    <StackPanel x:Name="ListPanel" Spacing="12"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

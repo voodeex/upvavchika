@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Controls.BookCard"
+             Width="220" Margin="12">
+    <Border Background="#313244" CornerRadius="12" ClipToBounds="True">
+        <StackPanel>
+
+            <!-- Обложка -->
+            <Border Height="260" Background="#313244">
+                <Border Background="#45475A" Margin="12,12,12,0" CornerRadius="8" ClipToBounds="True">
+                    <Image x:Name="ImgCover" Stretch="UniformToFill"/>
+                </Border>
+            </Border>
+
+            <!-- Инфо -->
+            <StackPanel Margin="12,10,12,14" Spacing="5">
+
+                <TextBlock x:Name="Title" Foreground="#CDD6F4" FontWeight="SemiBold"
+                           FontSize="15" TextWrapping="Wrap" MaxLines="2"/>
+
+                <TextBlock x:Name="Author" Foreground="#6C7086" FontSize="12"
+                           TextTrimming="CharacterEllipsis"/>
+
+                <!-- Рейтинг -->
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <TextBlock Text="★" FontSize="14" Foreground="#F9E2AF"/>
+                    <TextBlock x:Name="Rating" Foreground="#F9E2AF" FontSize="13" FontWeight="Medium"/>
+                </StackPanel>
+
+                <!-- Описание -->
+                <TextBlock x:Name="Description" Foreground="#6C7086" FontSize="12"
+                           TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis"/>
+
+                <!-- Кнопки -->
+                <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,6,0,0">
+                    <Button x:Name="Open" Content="Открыть" Click="Open_Click"
+                            Padding="10,5" CornerRadius="6" BorderThickness="0"
+                            Background="#89B4FA" Foreground="#1E1E2E" FontSize="12"/>
+                    <Button x:Name="AddToList" Content="+ Список" Click="AddToList_Click"
+                            Padding="10,5" CornerRadius="6" BorderThickness="1"
+                            BorderBrush="#45475A" Background="Transparent"
+                            Foreground="#CDD6F4" FontSize="12"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.BookFormView"
+             Background="#181825">
+    <Grid RowDefinitions="70,*">
+        <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="28,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="20">
+                <Button x:Name="Back" Content="← Назад" Click="Back_Click" Background="Transparent" BorderThickness="0" Foreground="#89B4FA" FontSize="15" Padding="0"/>
+                <TextBlock x:Name="PageTitle" Foreground="#CDD6F4" FontSize="22" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="32,28,32,40" Spacing="16" MaxWidth="640">
+                <TextBlock Text="Название" Foreground="#6C7086" FontSize="13"/>
+                <TextBox x:Name="TitleBox" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8"/>
+                <TextBlock Text="Описание" Foreground="#6C7086" FontSize="13"/>
+                <TextBox x:Name="DescriptionBox" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8" Height="80" AcceptsReturn="True"/>
+                <TextBlock Text="Обложка" Foreground="#6C7086" FontSize="13"/>
+                <TextBox x:Name="CoverPathBox" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8" PlaceholderText="Путь к файлу обложки..."/>
+                <TextBlock Text="Жанры" Foreground="#6C7086" FontSize="13"/>
+                <WrapPanel>
+                    <CheckBox x:Name="Classics" Content="Классика" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Detective" Content="Детектив" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Drama" Content="Драма" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="HistoricalFiction" Content="Историческая проза" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Poetry" Content="Поэзия" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Adventure" Content="Приключения" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Psychological" Content="Психологический роман" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Novel" Content="Роман" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="Satire" Content="Сатира" Foreground="#CDD6F4" FontSize="12"/>
+                    <CheckBox x:Name="SciFi" Content="Фантастика" Foreground="#CDD6F4" FontSize="12"/>
+                </WrapPanel>
+                <TextBlock Text="Текст книги" Foreground="#6C7086" FontSize="13"/>
+                <TextBox x:Name="ContentBox" Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8" Height="220" AcceptsReturn="True"/>
+                <TextBlock x:Name="FormError" Foreground="#F38BA8" FontSize="13" IsVisible="False"/>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Button x:Name="Save" Content="Сохранить" Click="Save_Click" Background="#89B4FA" Foreground="#1E1E2E" BorderThickness="0" Padding="18,9" CornerRadius="8" FontSize="14" FontWeight="SemiBold"/>
+                    <Button x:Name="Cancel" Content="Отмена" Click="Back_Click" Background="Transparent" BorderBrush="#45475A" BorderThickness="1" Foreground="#CDD6F4" Padding="18,9" CornerRadius="8" FontSize="14"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

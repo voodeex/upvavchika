@@ -4,6 +4,12 @@
     <option name="projectPerEditor">
       <map>
         <entry key="shootandbunny/App.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/AdminComplaintCard.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/AdminRoleRequestCard.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/AdminUnfreezeCard.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/AdminUserRow.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/ProfileReviewCard.axaml" value="shootandbunny/shootandbunny.csproj" />
+        <entry key="shootandbunny/Controls/ReadingListCard.axaml" value="shootandbunny/shootandbunny.csproj" />
         <entry key="shootandbunny/Dialogs/ChangePasswordDialog.axaml" value="shootandbunny/shootandbunny.csproj" />
         <entry key="shootandbunny/MainWindow.axaml" value="shootandbunny/shootandbunny.csproj" />
         <entry key="shootandbunny/Views/AddToListDialog.axaml" value="shootandbunny/shootandbunny.csproj" />

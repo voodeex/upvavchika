@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.ProfileView"
+             Background="#181825">
+    <Grid RowDefinitions="70,*">
+        <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="28,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="20">
+                <Button x:Name="Back" Content="← Назад" Click="Back_Click" Background="Transparent" BorderThickness="0" Foreground="#89B4FA" FontSize="15" Padding="0"/>
+                <TextBlock Text="Профиль" Foreground="#CDD6F4" FontSize="22" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1" Margin="32,28,32,40" ColumnDefinitions="280,28,*">
+            <Border Grid.Column="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="1" CornerRadius="10" Padding="24" VerticalAlignment="Top">
+                <StackPanel Spacing="0">
+                    <TextBlock x:Name="DisplayNameText" Foreground="#CDD6F4" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" Margin="0,0,0,20"/>
+                    <TextBlock Text="Логин" Foreground="#6C7086" FontSize="13"/>
+                    <TextBlock x:Name="LoginText" Foreground="#BAC2DE" FontSize="15" FontWeight="Medium" Margin="0,2,0,14"/>
+                    <TextBlock Text="Email" Foreground="#6C7086" FontSize="13"/>
+                    <TextBlock x:Name="EmailText" Foreground="#BAC2DE" FontSize="15" Margin="0,2,0,14" TextWrapping="Wrap"/>
+                    <TextBlock Text="Роль" Foreground="#6C7086" FontSize="13"/>
+                    <StackPanel Margin="0,4,0,14" HorizontalAlignment="Left">
+                        <Border x:Name="RoleBadgeAdmin" IsVisible="False" Background="#F38BA8" CornerRadius="4" Padding="8,3">
+                            <TextBlock Text="Администратор" Foreground="#1E1E2E" FontSize="13" FontWeight="Medium"/>
+                        </Border>
+                        <Border x:Name="RoleBadgeAuthor" IsVisible="False" Background="#A6E3A1" CornerRadius="4" Padding="8,3">
+                            <TextBlock Text="Автор" Foreground="#1E1E2E" FontSize="13" FontWeight="Medium"/>
+                        </Border>
+                        <Border x:Name="RoleBadgeReader" IsVisible="False" Background="#313244" CornerRadius="4" Padding="8,3">
+                            <TextBlock Text="Читатель" Foreground="#BAC2DE" FontSize="13" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+                    <TextBlock Text="Дата регистрации" Foreground="#6C7086" FontSize="13"/>
+                    <TextBlock x:Name="DateText" Foreground="#BAC2DE" FontSize="14" Margin="0,2,0,28"/>
+                    <Button x:Name="Logout" Content="Выйти из аккаунта" Click="Logout_Click" Background="#F38BA8" Foreground="#1E1E2E" BorderThickness="0" Padding="0,10" CornerRadius="8" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="24">
+                    <Border x:Name="FreezePanel" IsVisible="False" Background="#2D1B1E" BorderBrush="#F38BA8" BorderThickness="1" CornerRadius="10" Padding="20">
+                        <StackPanel Spacing="10">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="⚠" Foreground="#F38BA8" FontSize="18" VerticalAlignment="Center"/>
+                                <TextBlock Text="Аккаунт заморожен" Foreground="#F38BA8" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <TextBlock Text="Причина:" Foreground="#6C7086" FontSize="13"/>
+                            <TextBlock x:Name="FreezeReasonText" Foreground="#CDD6F4" FontSize="14" TextWrapping="Wrap"/>
+                            <Button x:Name="Unfreeze" Content="Оспорить заморозку" Click="Unfreeze_Click" Background="Transparent" BorderBrush="#F38BA8" BorderThickness="1" Foreground="#F38BA8" Padding="14,7" CornerRadius="6" FontSize="13" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <TextBlock x:Name="UnfreezeStatusText" IsVisible="False" Foreground="#6C7086" FontSize="12" FontStyle="Italic"/>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="RoleRequestPanel" IsVisible="False" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="1" CornerRadius="10" Padding="20">
+                        <StackPanel Spacing="12">
+                            <TextBlock Text="Стать автором" Foreground="#CDD6F4" FontSize="16" FontWeight="SemiBold"/>
+                            <TextBlock Text="Опишите, почему хотите стать автором, и расскажите о своём опыте." Foreground="#6C7086" FontSize="13" TextWrapping="Wrap"/>
+                            <Border x:Name="RoleRequestStatus" IsVisible="False" Background="#313244" CornerRadius="6" Padding="12,8">
+                                <TextBlock x:Name="RoleRequestStatusText" Foreground="#BAC2DE" FontSize="13" TextWrapping="Wrap"/>
+                            </Border>
+                            <StackPanel x:Name="RoleRequestForm" Spacing="8">
+                                <TextBox x:Name="RoleRequestReason" PlaceholderText="Расскажите о себе и своём опыте..." Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8" Height="80" AcceptsReturn="True"/>
+                                <TextBlock x:Name="RoleRequestError" Foreground="#F38BA8" FontSize="12" IsVisible="False"/>
+                                <Button x:Name="SubmitRoleRequest" Content="Отправить заявку" Click="SubmitRoleRequest_Click" Background="#89B4FA" Foreground="#1E1E2E" BorderThickness="0" Padding="16,8" CornerRadius="6" FontSize="13" FontWeight="Medium" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Spacing="14">
+                        <TextBlock Text="Мои отзывы" Foreground="#CDD6F4" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="NoReviewsText" Text="Вы ещё не оставили ни одного отзыва." Foreground="#6C7086" FontSize="14" IsVisible="False"/>
+                        <StackPanel x:Name="ReviewsPanel" Spacing="10"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

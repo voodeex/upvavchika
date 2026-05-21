@@ -15,7 +15,7 @@ public partial class MainWindow : Window
 
     private void ApplyRoleVisibility()
     {
-        var user = Session.CurrentUser;
+        var user = Core.CurrentUser;
         if (user == null) return;
         Author.IsVisible = user.Role.Name == "Автор";
         Admin.IsVisible = user.Role.Name == "Администратор";

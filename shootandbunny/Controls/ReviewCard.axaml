@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Controls.ReviewCard">
+    <Border Background="#1E1E2E" CornerRadius="10" Padding="16">
+        <StackPanel Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock x:Name="UserNameText" Foreground="#CDD6F4" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                <TextBlock x:Name="DateText" Foreground="#6C7086" FontSize="12" VerticalAlignment="Center"/>
+                <Border x:Name="FrozenBadge" IsVisible="False" Background="#F38BA8" CornerRadius="4" Padding="6,2">
+                    <TextBlock Text="Заморожен" Foreground="#1E1E2E" FontSize="11"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <TextBlock Text="★" Foreground="#F9E2AF" FontSize="14"/>
+                <TextBlock x:Name="RatingText" Foreground="#F9E2AF" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBlock x:Name="ReviewBodyText" Foreground="#BAC2DE" FontSize="14" TextWrapping="Wrap" IsVisible="False"/>
+            <StackPanel x:Name="ButtonsPanel" Orientation="Horizontal" Spacing="8" IsVisible="False">
+                <Button x:Name="ComplainBtn" Content="Пожаловаться" IsVisible="False" Click="Complain_Click" Background="Transparent" BorderBrush="#45475A" BorderThickness="1" Foreground="#CDD6F4" Padding="10,4" CornerRadius="6" FontSize="12"/>
+                <Button x:Name="FreezeBtnFreeze" IsVisible="False" Content="Заморозить" Click="Freeze_Click" Background="#F38BA8" Foreground="#1E1E2E" BorderThickness="0" Padding="10,4" CornerRadius="6" FontSize="12"/>
+                <Button x:Name="FreezeBtnUnfreeze" IsVisible="False" Content="Разморозить" Click="Freeze_Click" Background="#A6E3A1" Foreground="#1E1E2E" BorderThickness="0" Padding="10,4" CornerRadius="6" FontSize="12"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

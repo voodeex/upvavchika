@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.AdminView"
+             Background="#181825">
+    <Grid RowDefinitions="70,48,*">
+        <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="28,0">
+            <TextBlock Text="Администрирование" Foreground="#CDD6F4" FontSize="22" FontWeight="Bold" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="0">
+                <Button x:Name="TabUsers" Content="Пользователи" Click="Users_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="16,0"/>
+                <Button x:Name="TabComplaints" Content="Жалобы" Click="Complaints_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="16,0"/>
+                <Button x:Name="TabRoles" Content="Заявки на роль" Click="Roles_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="16,0"/>
+                <Button x:Name="TabUnfreeze" Content="Разморозка" Click="Unfreeze_Click" Background="Transparent" BorderThickness="0" Foreground="#CDD6F4" FontSize="14" Padding="16,0"/>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="2">
+            <TextBlock x:Name="EmptyText" Foreground="#6C7086" FontSize="14" IsVisible="False" Margin="24,16,0,0" VerticalAlignment="Top"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="ContentPanel" Margin="24,16,24,32" Spacing="10"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

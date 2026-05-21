@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Controls.AdminRoleRequestCard">
+    <Border Background="#1E1E2E" BorderBrush="#313244" BorderThickness="1" CornerRadius="10" Padding="16">
+        <StackPanel Spacing="4">
+            <TextBlock x:Name="UserRoleText" Foreground="#CDD6F4" FontSize="14" FontWeight="SemiBold"/>
+            <TextBlock x:Name="ReasonText" Foreground="#BAC2DE" FontSize="13" TextWrapping="Wrap" IsVisible="False"/>
+            <TextBlock x:Name="DateText" Foreground="#6C7086" FontSize="12"/>
+            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,6,0,0">
+                <Button Content="Одобрить" Click="Approve_Click" Background="#A6E3A1" Foreground="#1E1E2E" BorderThickness="0" Padding="12,5" CornerRadius="6" FontSize="12"/>
+                <Button Content="Отклонить" Click="Reject_Click" Background="Transparent" BorderBrush="#45475A" BorderThickness="1" Foreground="#CDD6F4" Padding="12,5" CornerRadius="6" FontSize="12"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

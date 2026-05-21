@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.AuthorView"
+             Background="#181825">
+    <Grid RowDefinitions="70,*">
+        <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="28,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="20">
+                <TextBlock Text="Мои книги" Foreground="#CDD6F4" FontSize="22" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Button x:Name="AddBook" Content="+ Добавить книгу" Click="AddBook_Click" Background="#89B4FA" Foreground="#1E1E2E" BorderThickness="0" Padding="14,7" CornerRadius="8" FontSize="13" FontWeight="Medium"/>
+            </StackPanel>
+        </Border>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="28,20,28,32" Spacing="12">
+                <TextBlock x:Name="EmptyText" Text="У вас ещё нет опубликованных книг." Foreground="#6C7086" FontSize="14" IsVisible="False"/>
+                <StackPanel x:Name="BooksPanel" Spacing="12"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

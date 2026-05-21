@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="shootandbunny.Views.UnfreezeRequestDialog"
+        Title="Оспорить заморозку"
+        Width="440" Height="280"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E2E"
+        CanResize="False">
+    <StackPanel Margin="28" Spacing="14">
+        <TextBlock Text="Оспорить заморозку" Foreground="#CDD6F4" FontSize="18" FontWeight="Bold"/>
+        <TextBlock Text="Опишите, почему считаете заморозку аккаунта необоснованной." Foreground="#6C7086" FontSize="13" TextWrapping="Wrap"/>
+        <TextBox x:Name="ReasonBox" PlaceholderText="Ваше объяснение..." Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A" CornerRadius="6" Padding="10,8" Height="90" AcceptsReturn="True"/>
+        <TextBlock x:Name="ErrorText" Foreground="#F38BA8" FontSize="12" IsVisible="False"/>
+        <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,4,0,0">
+            <Button x:Name="Submit" Content="Отправить" Click="Submit_Click" Background="#89B4FA" Foreground="#1E1E2E" BorderThickness="0" Padding="18,9" CornerRadius="6" FontSize="13" FontWeight="Medium"/>
+            <Button x:Name="Cancel" Content="Отмена" Click="Cancel_Click" Background="Transparent" BorderBrush="#45475A" BorderThickness="1" Foreground="#CDD6F4" Padding="18,9" CornerRadius="6" FontSize="13"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

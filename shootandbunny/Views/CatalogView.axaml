@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="shootandbunny.Views.CatalogView"
+             Background="#181825">
+
+    <Grid ColumnDefinitions="200,*">
+        
+        <Border Grid.Column="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,1,0">
+            <StackPanel Margin="12,16,12,16" Spacing="6">
+                <TextBlock Text="Жанры" Foreground="#CDD6F4" FontWeight="SemiBold" FontSize="13" Margin="0,0,0,8"/>
+                <CheckBox x:Name="Classics" Content="Классика" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Detective" Content="Детектив" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Drama" Content="Драма" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="HistoricalFiction" Content="Историческая проза" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Poetry" Content="Поэзия" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Adventure" Content="Приключения" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Psychological" Content="Психологический роман" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Novel" Content="Роман" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="Satire" Content="Сатира" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <CheckBox x:Name="SciFi" Content="Фантастика" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+            </StackPanel>
+        </Border>
+        
+        <Grid Grid.Column="1" RowDefinitions="Auto,*">
+            
+            <Border Grid.Row="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,0,1" Padding="16,10">
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBox x:Name="Search" Grid.Column="0" PlaceholderText="Поиск по названию или автору..."
+                             Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A"
+                             CornerRadius="6" Padding="10,6" TextChanged="Search_TextChanged"/>
+                    <ComboBox x:Name="Sort" Grid.Column="1" Margin="12,0,0,0" Width="160"
+                              Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A"
+                              CornerRadius="6" SelectionChanged="Sort_SelectionChanged">
+                        <ComboBoxItem Content="По названию" IsSelected="True"/>
+                        <ComboBoxItem Content="По рейтингу"/>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <WrapPanel x:Name="BooksPanel" Margin="16,8,16,16"/>
+            </ScrollViewer>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

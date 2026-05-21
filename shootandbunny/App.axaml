@@ -4,19 +4,5 @@
              RequestedThemeVariant="Default">
     <Application.Styles>
         <FluentTheme />
-        <Style Selector="Button">
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <ContentPresenter Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      Content="{TemplateBinding Content}"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                </ControlTemplate>
-            </Setter>
-        </Style>
     </Application.Styles>
 </Application>

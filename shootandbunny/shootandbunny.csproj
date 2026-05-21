@@ -47,9 +47,6 @@
         <Compile Update="Views\BookView.axaml.cs">
             <DependentUpon>BookView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\BookReaderView.axaml.cs">
-            <DependentUpon>BookReaderView.axaml</DependentUpon>
-        </Compile>
         <Compile Update="Views\ReadingListsView.axaml.cs">
             <DependentUpon>ReadingListsView.axaml</DependentUpon>
         </Compile>
@@ -65,17 +62,11 @@
         <Compile Update="Views\AdminView.axaml.cs">
             <DependentUpon>AdminView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\ComplaintDialog.axaml.cs">
-            <DependentUpon>ComplaintDialog.axaml</DependentUpon>
-        </Compile>
         <Compile Update="Views\UnfreezeRequestDialog.axaml.cs">
             <DependentUpon>UnfreezeRequestDialog.axaml</DependentUpon>
         </Compile>
         <Compile Update="Views\FreezeDialog.axaml.cs">
             <DependentUpon>FreezeDialog.axaml</DependentUpon>
-        </Compile>
-        <Compile Update="Views\ChangePasswordDialog.axaml.cs">
-            <DependentUpon>ChangePasswordDialog.axaml</DependentUpon>
         </Compile>
 
         
