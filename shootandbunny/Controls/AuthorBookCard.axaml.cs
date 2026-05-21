@@ -12,6 +12,7 @@ public partial class AuthorBookCard : UserControl
     private readonly Book _book;
 
     public event EventHandler<Book>? EditRequested;
+    public event EventHandler<Book>? UnfreezeRequested;
 
     public AuthorBookCard(Book book, double avgRating)
     {
@@ -23,7 +24,10 @@ public partial class AuthorBookCard : UserControl
         RatingText.Text = avgRating > 0 ? $"{avgRating:F1}" : "—";
 
         if (book.IsFrozen)
+        {
             FrozenBadge.IsVisible = true;
+            UnfreezeBtn.IsVisible = true;
+        }
 
         if (!string.IsNullOrEmpty(book.CoverPath) && System.IO.File.Exists(book.CoverPath))
             CoverImage.Source = new Bitmap(book.CoverPath);
@@ -32,5 +36,10 @@ public partial class AuthorBookCard : UserControl
     private void Edit_Click(object? sender, RoutedEventArgs e)
     {
         EditRequested?.Invoke(this, _book);
+    }
+
+    private void Unfreeze_Click(object? sender, RoutedEventArgs e)
+    {
+        UnfreezeRequested?.Invoke(this, _book);
     }
 }

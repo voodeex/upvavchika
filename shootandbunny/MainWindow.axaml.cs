@@ -1,5 +1,8 @@
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Microsoft.EntityFrameworkCore;
+using shootandbunny.Context;
 using shootandbunny.Views;
 
 namespace shootandbunny;
@@ -17,6 +20,9 @@ public partial class MainWindow : Window
     {
         var user = Core.CurrentUser;
         if (user == null) return;
+        using var db = new MyDbContext();
+        user = db.Users.Include(u => u.Role).First(u => u.Id == user.Id);
+        Core.CurrentUser = user;
         Author.IsVisible = user.Role.Name == "Автор";
         Admin.IsVisible = user.Role.Name == "Администратор";
         Frozen.IsVisible = user.IsFrozen;

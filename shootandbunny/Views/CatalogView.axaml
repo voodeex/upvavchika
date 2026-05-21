@@ -6,18 +6,11 @@
     <Grid ColumnDefinitions="200,*">
         
         <Border Grid.Column="0" Background="#1E1E2E" BorderBrush="#313244" BorderThickness="0,0,1,0">
+            
             <StackPanel Margin="12,16,12,16" Spacing="6">
                 <TextBlock Text="Жанры" Foreground="#CDD6F4" FontWeight="SemiBold" FontSize="13" Margin="0,0,0,8"/>
-                <CheckBox x:Name="Classics" Content="Классика" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Detective" Content="Детектив" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Drama" Content="Драма" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="HistoricalFiction" Content="Историческая проза" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Poetry" Content="Поэзия" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Adventure" Content="Приключения" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Psychological" Content="Психологический роман" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Novel" Content="Роман" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="Satire" Content="Сатира" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
-                <CheckBox x:Name="SciFi" Content="Фантастика" Foreground="#CDD6F4" FontSize="12" IsCheckedChanged="Genre_Changed"/>
+                <ListBox x:Name="GenresList" Background="Transparent" BorderThickness="0">
+                </ListBox>
             </StackPanel>
         </Border>
         

@@ -15,6 +15,7 @@
                 </Border>
             </StackPanel>
             <TextBlock x:Name="ReviewBodyText" Foreground="#BAC2DE" FontSize="14" TextWrapping="Wrap" IsVisible="False"/>
+            <Button x:Name="UnfreezeBtn" Content="Оспорить заморозку" Click="Unfreeze_Click" IsVisible="False" Background="Transparent" BorderBrush="#F38BA8" BorderThickness="1" Foreground="#F38BA8" Padding="12,5" CornerRadius="6" FontSize="12" HorizontalAlignment="Left"/>
         </StackPanel>
     </Border>
 </UserControl>

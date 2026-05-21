@@ -14,13 +14,37 @@ public partial class BookFormView : UserControl
 {
     private readonly Book? _book;
 
-    public BookFormView(Book? book = null)
+    public BookFormView() : this(null)
+    {
+    }
+
+    public BookFormView(Book? book)
     {
         InitializeComponent();
         _book = book;
+        LoadGenres();
         PageTitle.Text = book == null ? "Новая книга" : "Редактировать книгу";
         if (book != null)
             FillForm(book);
+    }
+
+    private void LoadGenres()
+    {
+        using var db = new MyDbContext();
+        var genres = db.Genres
+            .OrderBy(g => g.Name)
+            .ToList();
+        GenresList.Items.Clear();
+
+        foreach (var genre in genres)
+        {
+            var checkBox = new CheckBox
+            {
+                Content = genre.Name,
+                FontSize = 12
+            };
+            GenresList.Items.Add(checkBox);
+        }
     }
 
     private void FillForm(Book book)
@@ -30,33 +54,22 @@ public partial class BookFormView : UserControl
         CoverPathBox.Text = book.CoverPath ?? "";
         ContentBox.Text = book.Content ?? "";
         using var db = new MyDbContext();
-        var bookGenres = db.Books.Include(b => b.Genres).First(b => b.Id == book.Id).Genres.Select(g => g.Name).ToHashSet();
-        Classics.IsChecked          = bookGenres.Contains("Классика");
-        Detective.IsChecked         = bookGenres.Contains("Детектив");
-        Drama.IsChecked             = bookGenres.Contains("Драма");
-        HistoricalFiction.IsChecked = bookGenres.Contains("Историческая проза");
-        Poetry.IsChecked            = bookGenres.Contains("Поэзия");
-        Adventure.IsChecked         = bookGenres.Contains("Приключения");
-        Psychological.IsChecked     = bookGenres.Contains("Психологический роман");
-        Novel.IsChecked             = bookGenres.Contains("Роман");
-        Satire.IsChecked            = bookGenres.Contains("Сатира");
-        SciFi.IsChecked             = bookGenres.Contains("Фантастика");
+        var bookGenres = db.Books.Include(b => b.Genres).First(b => b.Id == book.Id).Genres.Select(g => g.Id).ToList();
+        foreach (var item in GenresList.Items.OfType<CheckBox>())
+        {
+            var genre = db.Genres.FirstOrDefault(g => g.Name == item.Content!.ToString());
+            if (genre != null)
+                item.IsChecked = bookGenres.Contains(genre.Id);
+        }
     }
 
     private List<string> GetSelectedGenres()
     {
-        var names = new List<string>();
-        if (Classics.IsChecked == true)          names.Add("Классика");
-        if (Detective.IsChecked == true)         names.Add("Детектив");
-        if (Drama.IsChecked == true)             names.Add("Драма");
-        if (HistoricalFiction.IsChecked == true) names.Add("Историческая проза");
-        if (Poetry.IsChecked == true)            names.Add("Поэзия");
-        if (Adventure.IsChecked == true)         names.Add("Приключения");
-        if (Psychological.IsChecked == true)     names.Add("Психологический роман");
-        if (Novel.IsChecked == true)             names.Add("Роман");
-        if (Satire.IsChecked == true)            names.Add("Сатира");
-        if (SciFi.IsChecked == true)             names.Add("Фантастика");
-        return names;
+        return GenresList.Items
+            .OfType<CheckBox>()
+            .Where(c => c.IsChecked == true)
+            .Select(c => c.Content?.ToString() ?? "")
+            .ToList();
     }
 
     private void Save_Click(object? sender, RoutedEventArgs e)

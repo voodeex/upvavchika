@@ -97,6 +97,13 @@ public partial class ProfileView : UserControl
                 var mainWindow = TopLevel.GetTopLevel(this) as MainWindow;
                 mainWindow?.Navigate(new BookView(book));
             };
+            card.UnfreezeRequested += async (_, review) =>
+            {
+                var mainWindow = TopLevel.GetTopLevel(this) as MainWindow;
+                if (mainWindow == null) return;
+                var dialog = new UnfreezeRequestDialog(_user.Id, reviewId: review.Id);
+                await dialog.ShowDialog(mainWindow);
+            };
             ReviewsPanel.Children.Add(card);
         }
     }

@@ -16,41 +16,56 @@ public partial class CatalogView : UserControl
     public CatalogView()
     {
         InitializeComponent();
+        LoadGenres();
         LoadAllBooks();
         RenderBooks(_books);
+    }
+
+    private void LoadGenres()
+    {
+        using var db = new MyDbContext();
+        var genres = db.Genres
+            .OrderBy(g => g.Name)
+            .ToList();
+        GenresList.Items.Clear();
+
+        foreach (var genre in genres)
+        {
+            var checkBox = new CheckBox
+            {
+                Content = genre.Name,
+                FontSize = 12
+            };
+            checkBox.IsCheckedChanged += Genre_Changed;
+            GenresList.Items.Add(checkBox);
+        }
     }
 
     private void LoadAllBooks()
     {
         using var db = new MyDbContext();
-        bool isAdmin = Core.CurrentUser?.Role.Name == "Администратор";
         _books = db.Books
             .Include(b => b.Author)
             .Include(b => b.Genres)
             .Include(b => b.Reviews)
-            .Where(b => isAdmin || !b.IsFrozen)
+            .Where(b => !b.IsFrozen)
             .ToList();
     }
 
     private void ApplyFilters()
     {
+       
         var result = _books;
         string search = Search.Text?.Trim().ToLower() ?? "";
         if (!string.IsNullOrEmpty(search))
             result = result.Where(x =>
                 x.Title.ToLower().Contains(search) ||
                 x.Author.DisplayName.ToLower().Contains(search)).ToList();
-        var selectedNames = new List<string>();
-        if (Classics.IsChecked == true) selectedNames.Add("Классика");
-        if (Detective.IsChecked == true) selectedNames.Add("Детектив");
-        if (Drama.IsChecked == true) selectedNames.Add("Драма");
-        if (HistoricalFiction.IsChecked == true) selectedNames.Add("Историческая проза");
-        if (Poetry.IsChecked == true) selectedNames.Add("Поэзия");
-        if (Adventure.IsChecked == true) selectedNames.Add("Приключения");
-        if (Psychological.IsChecked == true) selectedNames.Add("Психологический роман");
-        if (Novel.IsChecked == true) selectedNames.Add("Роман");
-        if (Satire.IsChecked == true) selectedNames.Add("Сатира");
-        if (SciFi.IsChecked == true) selectedNames.Add("Фантастика");
+        var selectedNames = GenresList.Items
+            .OfType<CheckBox>()
+            .Where(c => c.IsChecked == true)
+            .Select(c => c.Content?.ToString() ?? "")
+            .ToList();
         if (selectedNames.Count > 0)
             result = result.Where(x =>
                 x.Genres.Any(g => selectedNames.Contains(g.Name))).ToList();

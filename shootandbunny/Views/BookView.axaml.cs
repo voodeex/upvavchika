@@ -179,6 +179,11 @@ public partial class BookView : UserControl
         db.SaveChanges();
         _book.IsFrozen = book.IsFrozen;
         FreezeBook.Content = _book.IsFrozen ? "Разморозить книгу" : "Заморозить книгу";
+        if (_book.IsFrozen)
+        {
+            var mainWindow = TopLevel.GetTopLevel(this) as MainWindow;
+            mainWindow?.Navigate(new CatalogView());
+        }
     }
 
     private void ShowReviewForm_Click(object? sender, RoutedEventArgs e)

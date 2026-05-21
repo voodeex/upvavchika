@@ -46,6 +46,13 @@ public partial class AuthorView : UserControl
                 var mainWindow = TopLevel.GetTopLevel(this) as MainWindow;
                 mainWindow?.Navigate(new BookFormView(b));
             };
+            card.UnfreezeRequested += async (_, b) =>
+            {
+                var mainWindow = TopLevel.GetTopLevel(this) as MainWindow;
+                if (mainWindow == null) return;
+                var dialog = new UnfreezeRequestDialog(Core.CurrentUser!.Id, bookId: b.Id);
+                await dialog.ShowDialog(mainWindow);
+            };
             BooksPanel.Children.Add(card);
         }
     }

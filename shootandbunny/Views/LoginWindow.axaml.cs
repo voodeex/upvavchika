@@ -1,6 +1,7 @@
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Microsoft.EntityFrameworkCore;
 using shootandbunny.Entities;
 
 using shootandbunny.Context;
@@ -41,7 +42,7 @@ public partial class LoginWindow : Window
             LoginError.IsVisible = true;
             return;
         }
-        var user = Core.Context.Users.FirstOrDefault(u => u.Login == login);
+        var user = Core.Context.Users.Include(u => u.Role).FirstOrDefault(u => u.Login == login);
         if (user == null || user.Password != password)
         {
             LoginError.Text = "Неверный логин или пароль.";
@@ -110,7 +111,7 @@ public partial class LoginWindow : Window
         };
         Core.Context.Users.Add(newUser);
         Core.Context.SaveChanges();
-        Core.CurrentUser = newUser;
+        Core.CurrentUser = Core.Context.Users.Include(u => u.Role).First(u => u.Id == newUser.Id);
         NavSingle.Attach(new MainWindow());
         Close();
     }
